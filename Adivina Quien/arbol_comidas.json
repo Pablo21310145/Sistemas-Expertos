@@ -1,0 +1,87 @@
+{
+    "pregunta": "¿Es dulce?",
+    "si": {
+        "pregunta": "¿Se come al desayuno?",
+        "si": {
+            "pregunta": "¿Tiene un agujero en el centro?",
+            "si": {
+                "comida": "Donas"
+            },
+            "no": {
+                "pregunta": "¿Tiene un patron cuadriculado?",
+                "si": {
+                    "comida": "Waffles"
+                },
+                "no": {
+                    "pregunta": "¿Es crujiente?",
+                    "si": {
+                        "comida": "Molletes dulces"
+                    },
+                    "no": {
+                        "comida": "Hotcakes"
+                    }
+                }
+            }
+        },
+        "no": {
+            "comida": "Pastel"
+        }
+    },
+    "no": {
+        "pregunta": "¿Tiene carne?",
+        "si": {
+            "pregunta": "¿Es mexicana?",
+            "si": {
+                "pregunta": "¿Tiene forma de un rollo cerrado?",
+                "si": {
+                    "comida": "Burrito"
+                },
+                "no": {
+                    "pregunta": "¿Es un platillo con caldo?",
+                    "si": {
+                        "comida": "Pozole"
+                    },
+                    "no": {
+                        "comida": "Tacos"
+                    }
+                }
+            },
+            "no": {
+                "pregunta": "¿Es Italiana?",
+                "si": {
+                    "pregunta": "¿Es triangular?",
+                    "si": {
+                        "comida": "Pizza"
+                    },
+                    "no": {
+                        "comida": "Pasta"
+                    }
+                },
+                "no": {
+                    "comida": "Hamburguesa"
+                }
+            }
+        },
+        "no": {
+            "pregunta": "¿Se sirve frio?",
+            "si": {
+                "comida": "Ensalada"
+            },
+            "no": {
+                "pregunta": "¿Se prepara con tortilla?",
+                "si": {
+                    "comida": "Enchiladas rojas"
+                },
+                "no": {
+                    "pregunta": "¿Es de color blanco?",
+                    "si": {
+                        "comida": "Arroz blanco"
+                    },
+                    "no": {
+                        "comida": "Arroz rojo"
+                    }
+                }
+            }
+        }
+    }
+}
