@@ -1,11 +1,14 @@
+import tkinter as tk
+from tkinter import messagebox, simpledialog
 import json
+from pathlib import Path
 
 class Nodo:
     def __init__(self, pregunta=None, comida=None):
-        self.pregunta = pregunta  # Si es nodo interno
-        self.comida = comida      # Si es nodo hoja (respuesta)
-        self.si = None            # Rama para "sí"
-        self.no = None            # Rama para "no"
+        self.pregunta = pregunta
+        self.comida = comida
+        self.si = None
+        self.no = None
 
 def nodo_a_dict(nodo):
     if nodo.comida:
@@ -31,16 +34,15 @@ def guardar_arbol(raiz, archivo="arbol_comidas.json"):
         json.dump(nodo_a_dict(raiz), f, ensure_ascii=False, indent=4)
 
 def cargar_arbol(archivo="arbol_comidas.json"):
-    try:
+    if Path(archivo).exists():
         with open(archivo, "r", encoding="utf-8") as f:
             data = json.load(f)
             return dict_a_nodo(data)
-    except FileNotFoundError:
+    else:
         return crear_arbol_inicial()
-    
+
 def crear_arbol_inicial():
     raiz = Nodo("¿Es dulce?")
-
     dulce = Nodo("¿Se come al desayuno?")
     no_dulce = Nodo("¿Tiene carne?")
 
@@ -58,69 +60,123 @@ def crear_arbol_inicial():
 
     return raiz
 
-def preguntar_si_no(pregunta):
-    while True:
-        respuesta = input(pregunta + " (s/n): ").lower()
-        if respuesta in ["s", "n"]:
-            return respuesta == "s"
-        print("Por favor responde con 's' para sí o 'n' para no.")
+class JuegoComida:
+    def __init__(self, ventana, raiz_arbol):
+        self.ventana = ventana
+        self.raiz = raiz_arbol
+        self.actual = raiz_arbol
 
-def jugar(raiz):
-    actual = raiz
-    padre = None
-    ultima_rama = None  # "si" o "no"
+        self.saludo = tk.Label(ventana, text="🍲 Bienvenido al juego: Adivina la comida\n\nPiensa en una comida y yo intentaré adivinarla\n\n¿Listo? ¡Adelante!", font=("Arial", 12), justify="center")
+        self.saludo.pack(pady=20)
 
-    while actual.comida is None:
-        respuesta = preguntar_si_no(actual.pregunta)
-        padre = actual
-        ultima_rama = "si" if respuesta else "no"
-        actual = actual.si if respuesta else actual.no
+        self.boton_comenzar = tk.Button(ventana, text="¡Comenzar!", width=20, command=self.iniciar_juego)
+        self.boton_comenzar.pack(pady=10)
 
-    # Llegamos a una hoja
-    acertado = preguntar_si_no(f"¿Estás pensando en {actual.comida}?")
+        self.etiqueta_pregunta = tk.Label(ventana, text="", font=("Arial", 14))
+        self.etiqueta_pregunta.pack(pady=20)
+        self.etiqueta_pregunta.pack_forget()
 
-    if acertado:
-        print("¡Genial! Adiviné correctamente 😄")
-    else:
-        nueva_comida = input("Oh no... ¿En qué comida estabas pensando?: ")
-        nueva_pregunta = input(f"Escribe una pregunta que distinga a {nueva_comida} de {actual.comida}: ")
-        respuesta_para_nueva = preguntar_si_no(f"Para {nueva_comida}, ¿la respuesta sería sí?")
+        self.boton_si = tk.Button(ventana, text="Sí", width=20, command=self.responder_si)
+        self.boton_si.pack(pady=20)
+        self.boton_si.pack_forget()
+
+        self.boton_no = tk.Button(ventana, text="No", width=20, command=self.responder_no)
+        self.boton_no.pack(pady=20)
+        self.boton_no.pack_forget()
+
+        self.boton_reiniciar = tk.Button(ventana, text="Reiniciar Juego", width=20, command=self.reiniciar_juego)
+        self.boton_reiniciar.pack(pady=20)
+        self.boton_reiniciar.pack_forget()
+
+        ventana.protocol("WM_DELETE_WINDOW", self.cerrar_ventana)
+
+    def iniciar_juego(self):
+        self.saludo.pack_forget()
+        self.boton_comenzar.pack_forget()
+        self.etiqueta_pregunta.config(text=self.actual.pregunta)
+        self.etiqueta_pregunta.pack()
+        self.boton_si.pack()
+        self.boton_no.pack()
+
+    def responder_si(self):
+        self._responder(True)
+
+    def responder_no(self):
+        self._responder(False)
+
+    def _responder(self, respuesta):
+        if self.actual.comida is None:
+            self.actual = self.actual.si if respuesta else self.actual.no
+
+            if self.actual.comida is None:
+                self.etiqueta_pregunta.config(text=self.actual.pregunta)
+            else:
+                self.adivinacion()
+        else:
+            self.adivinacion()
+
+    def adivinacion(self):
+        self.etiqueta_pregunta.config(text=f"¿Estás pensando en {self.actual.comida}?")
+        self.boton_si.config(command=self.confirmar_si)
+        self.boton_no.config(command=self.confirmar_no)
+
+    def confirmar_si(self):
+        messagebox.showinfo("¡Adiviné!", f"¡Genial! Estaba pensando en {self.actual.comida} 😄")
+        self.etiqueta_pregunta.config(text="Gracias por jugar ¡Hasta la próxima! 😋")
+        self._finalizar_partida()
+
+    def confirmar_no(self):
+        nueva_comida = simpledialog.askstring("Nueva Comida", "¿En qué comida estabas pensando?")
+        nueva_pregunta = simpledialog.askstring("Nueva Pregunta", f"Escribe una pregunta que distinga a {nueva_comida} de {self.actual.comida}: ")
+        respuesta_para_nueva = messagebox.askyesno("Nueva Pregunta", f"Para {nueva_comida}, ¿la respuesta sería sí?")
 
         nuevo_nodo = Nodo(pregunta=nueva_pregunta)
         if respuesta_para_nueva:
             nuevo_nodo.si = Nodo(comida=nueva_comida)
-            nuevo_nodo.no = actual
+            nuevo_nodo.no = self.actual
         else:
             nuevo_nodo.no = Nodo(comida=nueva_comida)
-            nuevo_nodo.si = actual
+            nuevo_nodo.si = self.actual
 
-        if padre:
-            if ultima_rama == "si":
-                padre.si = nuevo_nodo
-            else:
-                padre.no = nuevo_nodo
-        else:
-            # Si no había padre, estamos en la raíz
-            raiz.pregunta = nuevo_nodo.pregunta
-            raiz.si = nuevo_nodo.si
-            raiz.no = nuevo_nodo.no
-            raiz.comida = None
+        # Reemplazar nodo actual por el nuevo
+        self.actual.pregunta = nuevo_nodo.pregunta
+        self.actual.comida = None
+        self.actual.si = nuevo_nodo.si
+        self.actual.no = nuevo_nodo.no
 
-        print("¡Gracias! Aprendí una nueva comida.")
+        messagebox.showinfo("¡Gracias!", "¡Aprendí una nueva comida! 😋")
+        self.etiqueta_pregunta.config(text="Gracias por jugar ¡Hasta la próxima! 😋")
+        self._finalizar_partida()
 
-def main():
-    print("\t\t🍲 Bienvenido al juego: Adivina la comida\n\nPiensa en una comida y yo intentare adivinarla")
-    print("\n¿Listo? ¡Adelante!\n\nLa comida en la que estas pensando: ")
-    raiz = cargar_arbol()
+    def _finalizar_partida(self):
+        self.boton_si.pack_forget()
+        self.boton_no.pack_forget()
+        self.boton_reiniciar.pack()
 
-    while True:
-        jugar(raiz)
-        if not preguntar_si_no("¿Quieres jugar otra vez?"):
-            break
+    def reiniciar_juego(self):
+        guardar_arbol(self.raiz)
+        self.actual = self.raiz
+        self.boton_reiniciar.pack_forget()
+        self.etiqueta_pregunta.config(text=self.actual.pregunta)
+        self.boton_si.config(command=self.responder_si)
+        self.boton_no.config(command=self.responder_no)
+        self.boton_si.pack()
+        self.boton_no.pack()
 
-    guardar_arbol(raiz)
-    print("Gracias por jugar ¡Hasta la próxima! 😋")
+    def cerrar_ventana(self):
+        guardar_arbol(self.raiz)
+        messagebox.showinfo("¡Gracias!", "Gracias por jugar ¡Hasta la próxima! 😋")
+        self.ventana.destroy()
 
 
+# Ejecutar la aplicación
 if __name__ == "__main__":
-    main()
+    ventana = tk.Tk()
+    ventana.title("Adivina la Comida")
+    ventana.geometry("450x400")
+    ventana.resizable(False, False)
+
+    raiz_arbol = cargar_arbol()
+    juego = JuegoComida(ventana, raiz_arbol)
+
+    ventana.mainloop()
