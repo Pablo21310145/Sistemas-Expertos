@@ -24,7 +24,19 @@
             }
         },
         "no": {
-            "comida": "Pastel"
+            "pregunta": "¿Se sirve por rebanadas? ",
+            "si": {
+                "comida": "Pastel"
+            },
+            "no": {
+                "pregunta": "¿Es derivado de la leche?",
+                "si": {
+                    "comida": "Helado"
+                },
+                "no": {
+                    "comida": "Muffin"
+                }
+            }
         }
     },
     "no": {
@@ -32,7 +44,7 @@
         "si": {
             "pregunta": "¿Es mexicana?",
             "si": {
-                "pregunta": "¿Tiene forma de un rollo cerrado?",
+                "pregunta": "¿Utiliza tortillas de harina?",
                 "si": {
                     "comida": "Burrito"
                 },
@@ -42,23 +54,77 @@
                         "comida": "Pozole"
                     },
                     "no": {
-                        "comida": "Tacos"
+                        "pregunta": "¿Se sirve en tortilla?",
+                        "si": {
+                            "comida": "Tacos"
+                        },
+                        "no": {
+                            "pregunta": "¿Se prepara en bolillo?",
+                            "si": {
+                                "comida": "Trotas ahogadas"
+                            },
+                            "no": {
+                                "comida": "Bistec a la Mexicana"
+                            }
+                        }
                     }
                 }
             },
             "no": {
-                "pregunta": "¿Es Italiana?",
+                "pregunta": "¿Contiene Pepperoni?",
                 "si": {
-                    "pregunta": "¿Es triangular?",
-                    "si": {
-                        "comida": "Pizza"
-                    },
-                    "no": {
-                        "comida": "Pasta"
-                    }
+                    "comida": "Pizza"
                 },
                 "no": {
-                    "comida": "Hamburguesa"
+                    "pregunta": "¿Se prepara con pasta?",
+                    "si": {
+                        "pregunta": "¿Contiene tamarindo?",
+                        "si": {
+                            "comida": "Laksa"
+                        },
+                        "no": {
+                            "comida": "Lasaña"
+                        }
+                    },
+                    "no": {
+                        "pregunta": "¿Se prepara con arroz?",
+                        "si": {
+                            "pregunta": "¿Se prepara con carne mechada?",
+                            "si": {
+                                "comida": "Pabellon criollo"
+                            },
+                            "no": {
+                                "pregunta": "¿Tiene una salsa espesa?",
+                                "si": {
+                                    "comida": "Curry"
+                                },
+                                "no": {
+                                    "comida": "Sushi"
+                                }
+                            }
+                        },
+                        "no": {
+                            "pregunta": "¿Se frie?",
+                            "si": {
+                                "comida": "Pescado frito"
+                            },
+                            "no": {
+                                "pregunta": "¿Se prepara con harina?",
+                                "si": {
+                                    "pregunta": "¿Se rellena?",
+                                    "si": {
+                                        "comida": "Arepa venezolana"
+                                    },
+                                    "no": {
+                                        "comida": "Arepa colombiana"
+                                    }
+                                },
+                                "no": {
+                                    "comida": "Hamburguesa"
+                                }
+                            }
+                        }
+                    }
                 }
             }
         },
@@ -70,15 +136,51 @@
             "no": {
                 "pregunta": "¿Se prepara con tortilla?",
                 "si": {
-                    "comida": "Enchiladas rojas"
-                },
-                "no": {
-                    "pregunta": "¿Es de color blanco?",
+                    "pregunta": "¿Se sirve con verdura?",
                     "si": {
-                        "comida": "Arroz blanco"
+                        "comida": "Enchiladas rojas"
                     },
                     "no": {
-                        "comida": "Arroz rojo"
+                        "comida": "Quesadillas"
+                    }
+                },
+                "no": {
+                    "pregunta": "¿Es mayoritariamente blanco?",
+                    "si": {
+                        "pregunta": "¿Se frie?",
+                        "si": {
+                            "comida": "Huevo estrellado"
+                        },
+                        "no": {
+                            "comida": "Arroz blanco"
+                        }
+                    },
+                    "no": {
+                        "pregunta": "¿Es de color rojo?",
+                        "si": {
+                            "comida": "Arroz rojo"
+                        },
+                        "no": {
+                            "pregunta": "¿Se prepara con papa?",
+                            "si": {
+                                "comida": "Papas a la francesa"
+                            },
+                            "no": {
+                                "pregunta": "¿Se prepara capeado?",
+                                "si": {
+                                    "comida": "Chile relleno de queso"
+                                },
+                                "no": {
+                                    "pregunta": "¿Se prepara sobre bolillo?",
+                                    "si": {
+                                        "comida": "Molletes"
+                                    },
+                                    "no": {
+                                        "comida": "Huevo revuelto"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
