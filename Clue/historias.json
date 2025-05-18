@@ -1,0 +1,132 @@
+[
+    {
+        "personajes": {
+            "Tu hermana": "Tu hermana dice que estaba en la Biblioteca estudiando y no vio ningun objeto.",
+            "Tu mamá": "Tu mamá estaba en la Cocina preparando el almuerzo y vio el objeto revólver.",
+            "Tu papá": "Tu papá estaba en el Billar arreglando una tubería rota y vio la llave inglesa.",
+            "Tu hermano": "Tu hermano estaba en el Estudio leyendo un libro de cocina y vio el candelabro.",
+            "Tu primo": "Tu primo estaba en el Comedor tomando una siesta y vio la cuerda."
+        },
+        "lugares": {
+            "Biblioteca": "Tu hermana fue visto en la biblioteca.",
+            "Cocina": "Tu mamá estaba en la Cocina preparando el almuerzo y vio el objeto revólver.",
+            "Billar": "Tu papá estaba en el Billar arreglando una tubería rota y vio la llave inglesa.",
+            "Estudio": "Tu hermano estaba en el Estudio de estar leyendo un libro de cocina y vio el candelabro.",
+            "Comedor": "Tu primo estaba en el Comedor tomando una siesta y vio la cuerda."
+        },
+        "armas": {
+            "Cuchillo de cocina": "El cuchillo estaba en la biblioteca antes del asesinato.",
+            "Revólver": "Tu mamá estaba en la Cocina preparando el almuerzo y vio el objeto revólver.",
+            "Llave inglesa": "Tu papá estaba en el Billar arreglando una tubería rota y vio la llave inglesa.",
+            "Candelabro": "Tu hermano estaba en el Estudio leyendo un libro de cocina y vio el candelabro.",
+            "Cuerda": "Tu primo estaba en el Comedor tomando una siesta y vio la cuerda."
+        },
+        "lugar": "Biblioteca",
+        "arma": "Cuchillo de cocina",
+        "culpable": "Tu hermana"
+    },
+    {
+        "personajes": {
+            "Tu hermana": "Tu hermana estaba en la Cocina dando una charla sobre historia a los empleados del hotel y vio el objeto revólver.",
+            "Tu mamá": "Tu mamá dice que estaba en la Biblioteca revisando unos informes médicos.",
+            "Tu papá": "Tu papá estaba en la Biblioteca hablando por teléfono con un colega y vio la cuerda. Y dice que no habia nadie mas con el",
+            "Tu hermano": "Tu hermano estaba en el Comedor descansando después de preparar la cena y vio la llave inglesa.",
+            "Tu primo": "Tu primo dice que estaba en el Billar escribiendo un artículo para su periódico y vio el cuchillo."
+        },
+        "lugares": {
+            "Cocina": "Tu hermana estaba en la Cocina dando una charla sobre historia a los empleados del hotel y vio el objeto revólver.",
+            "Biblioteca": "Tu papá estaba en la Biblioteca hablando por teléfono con un colega y vio la cuerda.",
+            "Estudio": "Las camaras en el estudio no estaban funcionando. Nadie dijo haber estadoa ahi",
+            "Comedor": "Tu hermano estaba en el Comedor descansando después de preparar la cena y vio la llave inglesa.",
+            "Billar": "Tu primo estaba en el Billar escribiendo un artículo para su periódico y vio el cuchillo."
+        },
+        "armas": {
+            "Candelabro": "El candelabro fue encontrado en el Estudio.",
+            "Revólver": "Tu hermana estaba en la Cocina dando una charla sobre historia a los empleados del hotel y vio el objeto revólver.",
+            "Llave inglesa": "Tu hermano estaba en el Comedor descansando después de preparar la cena y vio la llave inglesa.",
+            "Cuchillo de cocina": "Tu primo estaba en el Billar escribiendo un artículo para su periódico y vio el cuchillo.",
+            "Cuerda": "Tu papá estaba en el Estudio hablando por teléfono con un colega y vio la cuerda."
+        },
+        "lugar": "Estudio",
+        "arma": "Candelabro",
+        "culpable": "Tu mamá"
+    },
+    {
+        "personajes": {
+            "Tu hermana": "Tu hermana estaba en la Biblioteca.",
+            "Tu mamá": "Tu mamá estaba en el Estudio y vio el cuchillo.",
+            "Tu papá": "Tu papá estaba en la Cocina.",
+            "Tu hermano": "Tu hermano estaba en el Billar y vio la cuerda.",
+            "Tu primo": "Tu primo estaba en el Comedor y vio la llave inglesa."
+        },
+        "lugares": {
+            "Biblioteca": "Tu hermana estaba en la Biblioteca.",
+            "Estudio": "Tu mamá estaba en el Estudio y vio el cuchillo.",
+            "Cocina": "Las camaras detectaron a Tu papá en la cocina antes del asesinato y despues dejaron de funcionar",
+            "Billar": "Tu hermano estaba en el Billar y vio la cuerda.",
+            "Comedor": "Tu primo estaba en el Comedor y vio la llave inglesa."
+        },
+        "armas": {
+            "Revólver": "El relvolver se encontro escondido en la cocina.",
+            "Cuchillo de cocina": "Tu mamá estaba en el Estudio y vio el cuchillo.",
+            "Candelabro": "Las camaras detectaron el candelabro en la biblioteca.",
+            "Llave inglesa": "Tu primo estaba en el Comedor y vio la llave inglesa.",
+            "Cuerda": "Tu hermano estaba en el Billar y vio la cuerda."
+        },
+        "lugar": "Cocina",
+        "arma": "Revólver",
+        "culpable": "Tu papá"
+    },
+    {
+        "personajes": {
+            "Tu hermana": "Tu hermana estaba solo en la cocina.",
+            "Tu mamá": "Tu mamá estaba en el Estudio discutiendo con su esposo por teléfono y vio el candelabro.",
+            "Tu papá": "Tu papá estaba en el Comedor leyendo un manual de ingeniería y vio la llave inglesa.",
+            "Tu hermano": "Tu hermano dijo que estaba en la Cocina cocinando pescado para la cena y no vio ningun objeto.",
+            "Tu primo": "Tu primo estaba en la Biblioteca investigando para un reportaje y vio el cuchillo."
+        },
+        "lugares": {
+            "Billar": "Las camaras en Billar no estaban funcionando",
+            "Estudio": "Tu mamá estaba en el Estudio discutiendo con su esposo por teléfono y vio el candelabro.",
+            "Comedor": "Tu papá estaba en el Comedor leyendo un manual de ingeniería y vio la llave inglesa.",
+            "Cocina": "Tu hermano dice que estaba en la Cocina cocinando pescado para la cena y no vio ningun objeto.",
+            "Biblioteca": "Tu primo estaba en la Biblioteca investigando para un reportaje."
+        },
+        "armas": {
+            "Cuerda": "No se encontro la cuerda.",
+            "Candelabro": "Tu mamá estaba en el Estudio discutiendo con su esposo por teléfono y vio el candelabro.",
+            "Llave inglesa": "Tu papá estaba en el Comedor leyendo un manual de ingeniería y vio la llave inglesa.",
+            "Revólver": "Tu hermano dice que estaba en la Cocina cocinando pescado para la cena y no vio ningun objeto.",
+            "Cuchillo de cocina": "Tu primo estaba en la Biblioteca investigando para un reportaje y vio el chuchillo."
+        },
+        "lugar": "Billar",
+        "arma": "Cuerda",
+        "culpable": "Tu hermano"
+    },
+    {
+        "personajes": {
+            "Tu hermana": "Tu hermana estaba en el Comedor explorando el lugar en busca de objetos antiguos y encontro la llave inglesa debajo de un estante.",
+            "Tu mamá": "Tu mamá estaba en el Estudio revisando unos documentos históricos y vio el candelabro.",
+            "Tu papá": "Tu papá estaba en la Biblioteca intentando reparar un libro antiguo y vio el cuchillo.",
+            "Tu hermano": "Tu hermano estaba en el Billar pintando un paisaje del lugar y vio el revólver.",
+            "Tu primo": "Tu primo estaba en la Cocina buscando algo de comer entre los suministros viejos. Las camars en cocina no estaban funcionando"
+        },
+        "lugares": {
+            "Comedor": "Tu hermana estaba en el Comedor explorando el lugar en busca de objetos antiguos y vio la llave inglesa.",
+            "Estudio": "Tu mamá estaba en el Estudio revisando unos documentos históricos y vio el candelabro.",
+            "Biblioteca": "Tu papá estaba en la Biblioteca intentando reparar un libro antiguo y vio el cuchillo.",
+            "Billar": "Tu hermano estaba en el Billar pintando un paisaje del lugar y vio el revólver.",
+            "Cocina": "Tu primo estaba en la Cocina buscando algo de comer entre los suministros viejos."
+        },
+        "armas": {
+            "Llave inglesa": "Tu hermana estaba en el Comedor explorando el lugar en busca de objetos antiguos y encontro la llave inglesa debajo de un estante.",
+            "Candelabro": "Tu mamá estaba en el Estudio revisando unos documentos históricos y vio el candelabro.",
+            "Cuchillo de cocina": "Tu papá estaba en la Biblioteca intentando reparar un libro antiguo y vio el cuchillo.",
+            "Revólver": "Tu hermano estaba en el Billar pintando un paisaje del lugar y vio el revólver.",
+            "Cuerda": "Tu primo estaba en la Cocina buscando algo de comer entre los suministros viejos."
+        },
+        "lugar": "Comedor",
+        "arma": "Llave inglesa",
+        "culpable": "Tu primo"
+    }
+]
